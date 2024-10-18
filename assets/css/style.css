@@ -34,6 +34,10 @@ img{
 .col-4{
     width: calc((100% / 12) * 4 - 1rem);
 }
+
+.col-12{
+    width: 100%;
+}
 /* #endregion utilities */
 
 
@@ -98,8 +102,15 @@ img{
 @media screen and (min-width: 425px) {
     
     #app-header{
-        font-size: 1.5rem;
-        padding: 1.5rem 0;
+        font-size: 1.25rem;
+        padding: 1.25rem 0;
+    }
+
+    #app-main{
+
+        .col-sm-6{
+            width: calc((100% / 12) * 6 - 1rem);
+        }
     }
 }
 
@@ -110,6 +121,13 @@ img{
     #app-header{
         font-size: 2rem;
         padding: 2rem 0;
+    }
+
+    #app-main{
+
+        .col-md-4{
+            width: calc((100% / 12) * 4 - 1rem);
+        }
     }
 }
 

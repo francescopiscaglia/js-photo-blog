@@ -37,7 +37,7 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 function getMarkup(title, url) {
     return `
     <!-- Card -->
-    <div class="card col-4">
+    <div class="card col-12 col-sm-6 col-md-4">
 
         <!-- pin img -->
         <div class="pin">
