@@ -17,23 +17,14 @@ img{
 
 /* #region utilities */
 .container{
-    width: 50%;
+    width: 60%;
     margin: auto;
 }
 
 .row{
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -1rem;
-    gap: 1rem;
-}
-
-[class^="col-"]{
-    padding: 1rem;
-}
-
-.col-4{
-    width: calc((100% / 12) * 4 - 1rem);
+    gap: 1.25rem;
 }
 
 .col-12{
@@ -103,6 +94,7 @@ img{
 
     .col-sm-6{
         width: calc((100% / 12) * 6 - 1rem);
+        flex-grow: 1;
     }
     
     #app-header{
@@ -124,6 +116,7 @@ img{
 
     .col-md-4{
         width: calc((100% / 12) * 4 - 1rem);
+        flex-grow: 1;
     }
 
     #app-header
