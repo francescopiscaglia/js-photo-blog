@@ -62,7 +62,7 @@ function getMarkup(title, url) {
 
         <!-- pin img -->
         <div class="pin">
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_11_3)">
                     <circle cx="17" cy="16" r="16" fill="url(#paint0_linear_11_3)" />
                     <circle cx="17" cy="16" r="15" stroke="url(#paint1_linear_11_3)" stroke-width="2" />
