@@ -75,5 +75,9 @@ img{
                 transform: translate(-50%, -30%);
             }
         }
+
+        .card:hover{
+            transform: rotate(15deg) scale(1.1);   
+        }
     }
 }
