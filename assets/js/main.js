@@ -1,10 +1,11 @@
 // Setup
 
-let allMarkup = "";
-
 // seleziono gli elementi dalla DOM
 const rowEL = document.querySelector(".row");
 // console.log(imgEl);
+
+
+// Elaboration
 
 // chiamata AJAX
 axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
@@ -14,8 +15,23 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
     const photos = response.data
     // console.log(photos);
 
+    getDataFromAPI(photos)
+
+}) .catch(error => console.error(error))
+
+
+// Helper functions
+
+// creo una funzione per recuperare i dati che mi servono
+/**
+ * 
+ * @param {array} arr The array contained in the API response
+ */
+function getDataFromAPI(arr) {
+    let allMarkup = "";
+    
     // ciclo all'interno dell'array per ottenere accesso ai singoli oggetti        
-    photos.forEach(obj => {
+    arr.forEach(obj => {
 
         // destrotturo l'oggetto per ricavare i dati che mi servono            
         const { title, url } = obj
@@ -29,10 +45,10 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
     })
 
     rowEL.innerHTML = allMarkup;
+};
 
-}) .catch(error => console.error(error))
 
-
+// creo una funzione per generare il markup
 /**
  * 
  * @param {string} title 
@@ -89,3 +105,6 @@ function getMarkup(title, url) {
     </div>
     `;
 };
+
+
+
