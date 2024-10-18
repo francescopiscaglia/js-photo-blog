@@ -64,6 +64,7 @@ img{
         .card{
             background-color: white;
             position: relative;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
             .card-img{
                 padding: .75rem .75rem 0 .75rem;
@@ -85,42 +86,54 @@ img{
         .card:hover{
             transform: scale(1.1) rotate(10deg);
 
-            .pin{
-                display: none;
-            }
+        }
+
+        .card:hover > .pin{
+            display: none;
         }
     }
-
 }
 
 /* Media query */
-@media screen and (min-width: 460px) {
+@media screen and (min-width: 611px) {
+
+    .container-md{
+        width: 75%;
+    }
+
+    .col-sm-6{
+        width: calc((100% / 12) * 6 - 1rem);
+    }
     
     #app-header{
-        font-size: 1.25rem;
-        padding: 1.25rem 0;
+        font-size: 1.5rem;
+        padding: 1.5rem 0;
     }
 
     #app-main{
-
-        .col-sm-6{
-            width: calc((100% / 12) * 6 - 1rem);
-        }
+        margin: 2rem 0;
     }
+
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 920px) {
     
-    #app-header{
-        font-size: 2rem;
-        padding: 2rem 0;
+    .container-lg{
+        width: 65%;
     }
 
-    #app-main{
+    .col-md-4{
+        width: calc((100% / 12) * 4 - 1rem);
+    }
 
-        .col-md-4{
-            width: calc((100% / 12) * 4 - 1rem);
-        }
+    #app-header
+    {
+        font-size: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    #app-main
+    {
 
         .card{
             .card-img{

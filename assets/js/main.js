@@ -33,7 +33,12 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 }) .catch(error => console.error(error))
 
 
-
+/**
+ * 
+ * @param {string} title 
+ * @param {url} url 
+ * @returns markup
+ */
 function getMarkup(title, url) {
     return `
     <!-- Card -->
