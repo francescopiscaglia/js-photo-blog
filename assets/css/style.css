@@ -1,5 +1,18 @@
+/* #region commons */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* #endregion commons */
+
+/* Header */
+#app-header
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem 0;
+    background-image: url("../img/wall.png");
 }
