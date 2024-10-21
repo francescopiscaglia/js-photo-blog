@@ -23,11 +23,24 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 
     getDataFromAPI(photos)
 
+    const cardEl = document.querySelectorAll(".card");
+    // console.log(cardEl);
+ 
+    // open overlay
+    // il querySelectorAll mi restituisce una nodelist ovvero un'array
+    // quindi devo cicliarci all'interno per ottenere la singola card
+    cardEl.forEach(element => {
+        element.addEventListener("click", function() {
+            overlayEl.style.display = "block";
+        })
+    })
 }) .catch(error => console.error(error))
 
 
-closeOverlayEl.addEventListener("click", function() {
 
+
+// close overlay
+closeOverlayEl.addEventListener("click", function() {
     overlayEl.style.display = "none";
 })
 
