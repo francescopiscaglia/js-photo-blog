@@ -19,26 +19,14 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
     // salvo la risposta in una costante
     const photos = response.data
 
+    // invoco la funzione per salvare i dati e per aggiungere il markup
     getDataFromAPI(photos)
     
     const cardEl = document.querySelectorAll(".card");
 
-    // ciclo all'interno della nodelist cardEl
-    cardEl.forEach(singleCard => {
+    // il querySelectroAll mi restituisce una nodelist di tutte le card
+    getOverlayImg(cardEl);
 
-        // aggiungo l'event listener
-        singleCard.addEventListener("click", function() {
-
-            // faccio comparire l'overlay
-            overlayEl.style.display = "block";
-
-            // dalla singleCard mi seleziono l'src dell'img
-            const imgEl = singleCard.querySelector(".card-img > img").src;
-
-            // aggiorno l'src
-            mainImgEl.src = imgEl;
-        })
-    })
 }) .catch(error => console.error(error))
 
 // close overlay
@@ -68,7 +56,7 @@ function getDataFromAPI(arr) {
         const { title, url } = obj
         // console.log(title, url);
 
-        // invoco la variabile per creare il markup con i dati 
+        // invoco la funzione per creare il markup con i dati 
         const markup = getMarkup(title, url);
 
         // aggiungo il markup alla DOM
@@ -106,6 +94,32 @@ function getMarkup(title, url) {
     </div>
     `;
 };
+
+
+// creo una funzione per l'img dell'overlay
+/**
+ * 
+ * @param {array} nodelist the array returned by the query selector
+ */
+function getOverlayImg(nodelist) {
+
+    // ciclo all'interno della nodelist cardEl
+    nodelist.forEach(singleCard => {
+
+        // aggiungo l'event listener
+        singleCard.addEventListener("click", function() {
+
+            // faccio comparire l'overlay
+            overlayEl.style.display = "block";
+
+            // dalla singleCard mi seleziono l'src dell'img
+            const imgEl = singleCard.querySelector(".card-img > img").src;
+
+            // aggiorno l'src
+            mainImgEl.src = imgEl;
+        })
+    })
+}
 
 
 // creo una funzione per far chiudere l'overlay
