@@ -137,6 +137,7 @@ function closeOverlay(overlay) {
     overlay.style.display = "none";
 }
 
+
 // creo una funzione per la prima lettere in maiuscolo
 /**
  * 
@@ -156,5 +157,3 @@ function firstLetterUpperCase(string) {
     // faccio il return dell'array trasformato in stringa
     return splitString.join(" ");
 }
-
-
