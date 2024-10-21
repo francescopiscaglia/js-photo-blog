@@ -17,28 +17,27 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 .then(response => {
 
     // salvo la risposta in una costante
-    const photos = response.data
+    const photos = response.data;
 
     // invoco la funzione per salvare i dati e per aggiungere il markup
-    getDataFromAPI(photos)
+    getDataFromAPI(photos);
     
     const cardEl = document.querySelectorAll(".card");
 
     // il querySelectroAll mi restituisce una nodelist di tutte le card
     getOverlayImg(cardEl);
 
-}) .catch(error => console.error(error))
+}) .catch(error => console.error(error));
 
 // close overlay
 closeOverlayEl.addEventListener("click", function() {
-    closeOverlay(overlayEl)
-
+    closeOverlay(overlayEl);
 });
 
 overlayEl.addEventListener("click", function() {
     // se il target del click non è mainImgEl allora chiude l'overlay
     if (event.target != mainImgEl) {
-        closeOverlay(overlayEl)
+        closeOverlay(overlayEl);
     };
 });
 
@@ -59,9 +58,12 @@ function getDataFromAPI(arr) {
         // destrotturo l'oggetto per ricavare i dati che mi servono            
         const { title, url } = obj
         // console.log(title, url);
+        
+        // invoco la funzione per capitalizzare il titolo
+        const titleUpperCase = firstLetterUpperCase(title)
 
         // invoco la funzione per creare il markup con i dati 
-        const markup = getMarkup(title, url);
+        const markup = getMarkup(titleUpperCase, url);
 
         // aggiungo il markup alla DOM
         allMarkup += markup
@@ -135,5 +137,24 @@ function closeOverlay(overlay) {
     overlay.style.display = "none";
 }
 
+// creo una funzione per la prima lettere in maiuscolo
+/**
+ * 
+ * @param {string} string The titol
+ * @returns {string}
+ */
+function firstLetterUpperCase(string) {
+
+    // splitto in un array tutte le parole della stringa
+    const splitString = string.split(" ");
+
+    // ciclo all'interno dell'array per prendere la prima lettera 
+    for (let i = 0; i < splitString.length; i++) {
+        splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);
+    }
+
+    // faccio il return dell'array trasformato in stringa
+    return splitString.join(" ");
+}
 
 
