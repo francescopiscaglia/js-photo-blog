@@ -32,10 +32,13 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 // close overlay
 closeOverlayEl.addEventListener("click", function() {
     closeOverlay(overlayEl)
+
 });
 
 overlayEl.addEventListener("click", function() {
-    closeOverlay(overlayEl)
+    if (event.target != mainImgEl) {
+        closeOverlay(overlayEl)
+    }
 });
 
 
