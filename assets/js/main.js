@@ -41,12 +41,13 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
     })
 }) .catch(error => console.error(error))
 
-
-
-
 // close overlay
 closeOverlayEl.addEventListener("click", function() {
-    overlayEl.style.display = "none";
+    closeOverlay(overlayEl)
+});
+
+overlayEl.addEventListener("click", function() {
+    closeOverlay(overlayEl)
 });
 
 
@@ -105,6 +106,16 @@ function getMarkup(title, url) {
     </div>
     `;
 };
+
+
+// creo una funzione per far chiudere l'overlay
+/**
+ * 
+ * @param {element} overlay The DOM element overlay 
+ */
+function closeOverlay(overlay) {
+    overlay.style.display = "none";
+}
 
 
 

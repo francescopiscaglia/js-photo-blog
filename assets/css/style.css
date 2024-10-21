@@ -107,6 +107,12 @@ img{
                 font-size: 1rem;
             }
         }
+
+        .main-img{
+            img{
+                height: 500px;
+            }
+        }
     }
 }
 
