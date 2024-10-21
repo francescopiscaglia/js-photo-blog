@@ -36,9 +36,10 @@ closeOverlayEl.addEventListener("click", function() {
 });
 
 overlayEl.addEventListener("click", function() {
+    // se il target del click non è mainImgEl allora chiude l'overlay
     if (event.target != mainImgEl) {
         closeOverlay(overlayEl)
-    }
+    };
 });
 
 
