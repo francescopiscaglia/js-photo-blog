@@ -4,6 +4,12 @@
 const rowEL = document.querySelector(".row");
 // console.log(imgEl);
 
+const overlayEl = document.querySelector(".overlay");
+// console.log(overlayEl);
+
+const closeOverlayEl = document.querySelector(".close-overlay");
+// console.log(closeOverlayEl);
+
 
 // Elaboration
 
@@ -18,6 +24,12 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
     getDataFromAPI(photos)
 
 }) .catch(error => console.error(error))
+
+
+closeOverlayEl.addEventListener("click", function() {
+
+    overlayEl.style.display = "none";
+})
 
 
 // Helper functions
