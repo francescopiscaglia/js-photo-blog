@@ -2,13 +2,12 @@
 
 // seleziono gli elementi dalla DOM
 const rowEL = document.querySelector(".row");
-// console.log(imgEl);
 
 const overlayEl = document.querySelector(".overlay");
-// console.log(overlayEl);
 
 const closeOverlayEl = document.querySelector(".close-overlay");
-// console.log(closeOverlayEl);
+
+const mainImgEl = document.querySelector(".main-img > img");
 
 
 // Elaboration
@@ -19,19 +18,25 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 
     // salvo la risposta in una costante
     const photos = response.data
-    // console.log(photos);
 
     getDataFromAPI(photos)
-
+    
     const cardEl = document.querySelectorAll(".card");
-    // console.log(cardEl);
- 
-    // open overlay
-    // il querySelectorAll mi restituisce una nodelist ovvero un'array
-    // quindi devo cicliarci all'interno per ottenere la singola card
-    cardEl.forEach(element => {
-        element.addEventListener("click", function() {
+
+    // ciclo all'interno della nodelist cardEl
+    cardEl.forEach(singleCard => {
+
+        // aggiungo l'event listener
+        singleCard.addEventListener("click", function() {
+
+            // faccio comparire l'overlay
             overlayEl.style.display = "block";
+
+            // dalla singleCard mi seleziono l'src dell'img
+            const imgEl = singleCard.querySelector(".card-img > img").src;
+
+            // aggiorno l'src
+            mainImgEl.src = imgEl;
         })
     })
 }) .catch(error => console.error(error))
@@ -42,7 +47,7 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
 // close overlay
 closeOverlayEl.addEventListener("click", function() {
     overlayEl.style.display = "none";
-})
+});
 
 
 // Helper functions
